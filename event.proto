@@ -74,7 +74,7 @@ message EventConfig {
 
 message EventLocation {
     string id = 1;
-    string name = 2;
+    string venue = 2;
     string street = 3;
     string city = 4;
     string country = 5;
@@ -109,7 +109,7 @@ message CreateEventRequest {
     google.protobuf.Timestamp start_date = 3;
     google.protobuf.Timestamp end_date = 4;
     string thumbnail_url = 5;
-    string venue_name = 6;
+    string venue = 6;
     string street = 7;
     string city = 8;
     string country = 9;
