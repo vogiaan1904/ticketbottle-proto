@@ -75,13 +75,9 @@ message EventConfig {
 message EventLocation {
     string id = 1;
     string venue = 2;
-    string street = 3;
-    string city = 4;
-    string country = 5;
-    optional string ward = 6;
-    optional string district = 7;
-    google.protobuf.Timestamp created_at = 8;
-    google.protobuf.Timestamp updated_at = 9;
+    string address = 3;
+    google.protobuf.Timestamp created_at = 4;
+    google.protobuf.Timestamp updated_at = 5;
 }
 
 message EventOrganizer {
