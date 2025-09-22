@@ -6,7 +6,6 @@ import "google/protobuf/empty.proto";
 service UserService {
     rpc Create(CreateUserRequest) returns (CreateUserResponse);
     rpc Update(UpdateUserRequest) returns (UpdateUserResponse);
-    rpc UpdatePassword(UpdateUserPasswordRequest) returns (UpdateUserPasswordResponse);
     rpc FindOne(FindOneUserRequest) returns (FindOneUserResponse);
     rpc FindAll(FindAllUserRequest) returns (FindAllUserResponse);
     rpc Delete(DeleteUserRequest) returns (google.protobuf.Empty);
@@ -39,22 +38,13 @@ message CreateUserResponse {
 
 message UpdateUserRequest {
     string id = 1;
-    optional string avatar = 3;
-    optional string first_name = 4;
-    optional string last_name = 5;
+    optional string avatar = 2;
+    optional string first_name = 3;
+    optional string last_name = 4;
+    optional string password = 5;
 }
 
 message UpdateUserResponse {
-    User user = 1;
-}
-
-message UpdateUserPasswordRequest {
-    string id = 1;
-    string old_password = 2;
-    string new_password = 3;
-}
-
-message UpdateUserPasswordResponse {
     User user = 1;
 }
 
