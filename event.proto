@@ -173,7 +173,7 @@ message EventFilter {
 message FindManyEventRequest {
     int32 page = 1;           
     int32 page_size = 2;
-    EventFilter filter = 3;
+    optional EventFilter filter = 3;
 }
 
 message FindManyEventResponse {
@@ -191,7 +191,7 @@ message PaginationInfo {
 }
 
 message ListEventRequest {
-    EventFilter filter = 1;
+    optional EventFilter filter = 1;
 }
 
 message ListEventResponse {
