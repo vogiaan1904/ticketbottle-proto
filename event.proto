@@ -8,6 +8,7 @@ service EventService {
     rpc Create(CreateEventRequest) returns (CreateEventResponse);
     rpc Update(UpdateEventRequest) returns (UpdateEventResponse);
     rpc FindOne(FindOneEventRequest) returns (FindOneEventResponse);
+    rpc FindMany(FindManyEventRequest) returns (FindManyEventResponse);
     rpc FindAll(FindAllEventRequest) returns (FindAllEventResponse);
     rpc Delete(DeleteEventRequest) returns (google.protobuf.Empty);
     
