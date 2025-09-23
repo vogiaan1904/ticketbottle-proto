@@ -85,9 +85,8 @@ message EventOrganizer {
     string name = 2;
     string description = 3;
     string logo_url = 4;
-    string email = 5;
-    google.protobuf.Timestamp created_at = 6;
-    google.protobuf.Timestamp updated_at = 7;
+    google.protobuf.Timestamp created_at = 5;
+    google.protobuf.Timestamp updated_at = 6;
 }
 
 message EventRole {
