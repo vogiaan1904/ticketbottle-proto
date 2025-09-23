@@ -9,7 +9,7 @@ service EventService {
     rpc Update(UpdateEventRequest) returns (UpdateEventResponse);
     rpc FindOne(FindOneEventRequest) returns (FindOneEventResponse);
     rpc FindMany(FindManyEventRequest) returns (FindManyEventResponse);
-    rpc FindAll(FindAllEventRequest) returns (FindAllEventResponse);
+    rpc List(ListEventRequest) returns (ListEventResponse);
     rpc Delete(DeleteEventRequest) returns (google.protobuf.Empty);
     
     // Additional event-specific operations
@@ -155,12 +155,25 @@ message FindOneEventResponse {
     Event event = 1;
 }
 
+
+message EventFilter {
+    optional string search_query = 1;
+    repeated Category categories = 2;
+    optional EventStatus status = 3;
+    optional string organizer_id = 4;
+    optional string user_id = 5;
+    optional google.protobuf.Timestamp start_date_from = 6;
+    optional google.protobuf.Timestamp start_date_to = 7;
+    optional string city = 8;
+    optional string country = 9;
+    optional bool is_public = 10;
+    optional bool is_free = 11;
+}
+
 message FindManyEventRequest {
-    int32 current = 1;           
-    int32 limit = 2;
-    string search = 3;
-    repeated Category categories = 4;
-    EventStatus status = 5;
+    int32 page = 1;           
+    int32 page_size = 2;
+    EventFilter filter = 3;
 }
 
 message FindManyEventResponse {
@@ -169,32 +182,20 @@ message FindManyEventResponse {
 }
 
 message PaginationInfo {
-    int32 current = 1;
-    int32 limit = 2;
+    int32 page = 1;
+    int32 page_size = 2;
     int32 count = 3;
     int32 total = 4;
     bool has_next = 5;
     bool has_previous = 6;
 }
 
-message FindAllEventRequest {
-    repeated string ids = 1;
-    repeated string organizer_ids = 2;
-    repeated EventStatus statuses = 3;
-    repeated Category categories = 4;
-    optional google.protobuf.Timestamp start_date_from = 5;
-    optional google.protobuf.Timestamp start_date_to = 6;
-    optional string location_city = 7;
-    optional string location_country = 8;
-    optional bool is_public = 9;
-    optional bool is_free = 10;
-    optional int32 limit = 11;
-    optional int32 offset = 12;
+message ListEventRequest {
+    EventFilter filter = 1;
 }
 
-message FindAllEventResponse {
+message ListEventResponse {
     repeated Event events = 1;
-    int32 total_count = 2;
 }
 
 message DeleteEventRequest {
