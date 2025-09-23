@@ -154,6 +154,27 @@ message FindOneEventResponse {
     Event event = 1;
 }
 
+message FindManyEventRequest {
+    int32 page_size = 1;
+    string page_token = 2;
+    string search = 3;
+    repeated Category categories = 4;
+    EventStatus status = 5;
+}
+
+message FindManyEventResponse {
+    repeated Event events = 1;
+    string next_page_token = 2;
+    PaginationInfo pagination = 3;
+}
+
+message PaginationInfo {
+  int32 current_page_size = 1;
+  int32 current_page = 2;
+  bool has_next_page = 3;
+  bool has_previous_page = 4;
+}
+
 message FindAllEventRequest {
     repeated string ids = 1;
     repeated string organizer_ids = 2;
