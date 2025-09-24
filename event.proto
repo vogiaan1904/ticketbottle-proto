@@ -145,10 +145,7 @@ message UpdateEventResponse {
 }
 
 message FindOneEventRequest {
-    oneof find_option {
-        string id = 1;
-        string name = 2;
-    }
+    string id = 1;
 }
 
 message FindOneEventResponse {
