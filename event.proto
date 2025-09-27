@@ -115,6 +115,7 @@ message CreateEventRequest {
     string organizer_name = 13;
     string organizer_description = 14;
     string organizer_logo_url = 15;
+    string creator_user_id = 16;
 }
 
 message CreateEventResponse {
