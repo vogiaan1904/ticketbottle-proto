@@ -195,15 +195,16 @@ message DeleteEventRequest {
 
 // Event Config messages
 message CreateEventConfigRequest {
-    string event_id = 1;
-    string ticket_sale_start_date = 2;
-    string ticket_sale_end_date = 3;
-    bool is_free = 4;
-    int32 max_attendees = 5;
-    bool is_public = 6;
-    bool requires_approval = 7;
-    bool allow_wait_room = 8;
-    bool is_new_trending = 9;
+    string user_id = 1;
+    string event_id = 2;
+    string ticket_sale_start_date = 3;
+    string ticket_sale_end_date = 4;
+    bool is_free = 5;
+    int32 max_attendees = 6;
+    bool is_public = 7;
+    bool requires_approval = 8;
+    bool allow_wait_room = 9;
+    bool is_new_trending = 10;
 }
 
 message CreateEventConfigResponse {
