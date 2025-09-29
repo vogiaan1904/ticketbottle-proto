@@ -66,16 +66,12 @@ message EventConfig {
     bool allow_wait_room = 8;
     bool is_new_trending = 9;
     EventStatus status = 10;
-    string created_at = 12;
-    string updated_at = 13;
 }
 
 message EventLocation {
     string id = 1;
     string venue = 2;
     string address = 3;
-    string created_at = 4;
-    string updated_at = 5;
 }
 
 message EventOrganizer {
@@ -83,8 +79,6 @@ message EventOrganizer {
     string name = 2;
     string description = 3;
     string logo_url = 4;
-    string created_at = 5;
-    string updated_at = 6;
 }
 
 message EventRole {
@@ -92,8 +86,6 @@ message EventRole {
     string user_id = 2;
     string event_id = 3;
     EventRoleType role = 4;
-    string created_at = 5;
-    string updated_at = 6;
 }
 
 message CreateEventRequest {
