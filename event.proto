@@ -49,8 +49,9 @@ message Event {
     EventOrganizer organizer = 9;
     repeated EventRole roles = 10;
     repeated EventCategory categories = 11;
-    string created_at = 12;
-    string updated_at = 13;
+    EventStatus status = 12;
+    string created_at = 13;
+    string updated_at = 14;
 }
 
 message EventCategory {
@@ -68,7 +69,6 @@ message EventConfig {
     bool requires_approval = 7;
     bool allow_wait_room = 8;
     bool is_new_trending = 9;
-    EventStatus status = 10;
 }
 
 message EventLocation {
@@ -210,8 +210,6 @@ message CreateEventConfigRequest {
 message CreateEventConfigResponse {
     EventConfig event_config = 1;
 }
-
-
 
 // Event-specific operation messages
 message PublishEventRequest {
