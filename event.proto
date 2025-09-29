@@ -15,8 +15,9 @@ service EventService {
     rpc CreateConfig(CreateEventConfigRequest) returns (CreateEventConfigResponse);
     
     // Additional event-specific operations
-    rpc PublishEvent(PublishEventRequest) returns (PublishEventResponse);
-    rpc CancelEvent(CancelEventRequest) returns (CancelEventResponse);
+    rpc ApproveEvent(ApproveEventRequest) returns (google.protobuf.Empty);
+    rpc PublishEvent(PublishEventRequest) returns (google.protobuf.Empty);
+    rpc CancelEvent(CancelEventRequest) returns (google.protobuf.Empty);
     rpc GetEventRoles(GetEventRolesRequest) returns (GetEventRolesResponse);
     rpc AssignEventRole(AssignEventRoleRequest) returns (AssignEventRoleResponse);
     rpc RemoveEventRole(RemoveEventRoleRequest) returns (google.protobuf.Empty);
@@ -212,16 +213,20 @@ message CreateEventConfigResponse {
 }
 
 // Event-specific operation messages
-message PublishEventRequest {
+
+message ApproveEventRequest {
     string event_id = 1;
+    string user_id = 2;
 }
 
-message PublishEventResponse {
-    Event event = 1;
+message PublishEventRequest {
+    string event_id = 1;
+    string user_id = 2;
 }
 
 message CancelEventRequest {
     string event_id = 1;
+    string user_id = 2;
 }
 
 message CancelEventResponse {
