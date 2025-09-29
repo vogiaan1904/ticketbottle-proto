@@ -45,9 +45,14 @@ message Event {
     EventConfig config = 8;
     EventOrganizer organizer = 9;
     repeated EventRole roles = 10;
-    repeated string categories = 11;
+    repeated EventCategory categories = 11;
     string created_at = 12;
     string updated_at = 13;
+}
+
+message EventCategory {
+    string id = 1;
+    string name = 2;
 }
 
 message EventConfig {
@@ -103,7 +108,7 @@ message CreateEventRequest {
     string country = 9;
     optional string ward = 10;
     optional string district = 11;
-    repeated string categories = 12;
+    repeated string category_ids = 12;
     string organizer_name = 13;
     string organizer_description = 14;
     string organizer_logo_url = 15;
@@ -127,7 +132,7 @@ message UpdateEventRequest {
     optional string country = 10;
     optional string ward = 11;
     optional string district = 12;
-    repeated string categories = 13;
+    repeated string category_ids = 13;
     optional string organizer_name = 14;
     optional string organizer_description = 15;
     optional string organizer_logo_url = 16;
@@ -148,7 +153,7 @@ message FindOneEventResponse {
 
 message EventFilter {
     optional string search_query = 1;
-    repeated string categories = 2;
+    repeated string category_ids = 2;
     optional EventStatus status = 3;
     optional string organizer_id = 4;
     optional string user_id = 5;
