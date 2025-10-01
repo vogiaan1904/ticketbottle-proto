@@ -13,6 +13,8 @@ service EventService {
 
     // Event config
     rpc CreateConfig(CreateEventConfigRequest) returns (CreateEventConfigResponse);
+    rpc GetConfig(GetEventConfigRequest) returns (GetEventConfigResponse);
+    rpc UpdateConfig(UpdateEventConfigRequest) returns (UpdateEventConfigResponse);
     
     // Additional event-specific operations
     rpc ApproveEvent(ApproveEventRequest) returns (google.protobuf.Empty);
@@ -213,6 +215,33 @@ message CreateEventConfigRequest {
 message CreateEventConfigResponse {
     EventConfig event_config = 1;
 }
+
+message GetEventConfigRequest {
+    string event_id = 1;
+    string user_id = 2;
+}
+
+message GetEventConfigResponse {
+    EventConfig event_config = 1;
+}
+
+message UpdateEventConfigRequest {
+    string event_id = 1;
+    string user_id = 2;
+    string ticket_sale_start_date = 3;
+    string ticket_sale_end_date = 4;
+    bool is_free = 5;
+    int32 max_attendees = 6;
+    bool is_public = 7;
+    bool requires_approval = 8;
+    bool allow_wait_room = 9;
+    bool is_new_trending = 10;
+}
+
+message UpdateEventConfigResponse {
+    EventConfig event_config = 1;
+}
+
 
 // Event-specific operation messages
 
