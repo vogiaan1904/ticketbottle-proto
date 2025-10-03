@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package waitroom.v1;
 
-option go_package = "github.com/vogiaan1904/ticketbottle-waitroom/proto/waitroom;waitroom";
+option go_package = "github.com/vogiaan1904/ticketbottle-proto/proto/waitroom";
 
 import "google/protobuf/timestamp.proto";
 
@@ -17,9 +17,8 @@ service WaitroomService {
 message JoinQueueRequest {
   string user_id = 1;
   string event_id = 2;
-  int32 priority = 3;
-  string user_agent = 4;
-  string ip_address = 5;
+  string user_agent = 3;
+  string ip_address = 4;
 }
 
 message JoinQueueResponse {
