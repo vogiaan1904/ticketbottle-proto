@@ -3,6 +3,8 @@ syntax = "proto3";
 package event;
 import "google/protobuf/empty.proto";
 
+option go_package = "github.com/vogiaan1904/ticketbottle-proto/proto/event";
+
 service EventService {
     rpc Create(CreateEventRequest) returns (CreateEventResponse);
     rpc Update(UpdateEventRequest) returns (UpdateEventResponse);
