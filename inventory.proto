@@ -1,0 +1,75 @@
+syntax = "proto3";
+
+package event;
+import "google/protobuf/empty.proto";
+
+option go_package = "github.com/vogiaan1904/ticketbottle-proto/proto/inventory";
+
+service InventoryService {
+    rpc CreateTicketClass(CreateTicketClassRequest) returns (CreateTicketClassResponse);
+    rpc UpdateTicketClass(UpdateTicketClassRequest) returns (UpdateTicketClassResponse);
+    rpc FindOneTicketClass(FindOneTicketClassRequest) returns (FindOneTicketClassResponse);
+    rpc FindManyTicketClass(FindManyTicketClassRequest) returns (FindManyTicketClassResponse);
+    rpc DeleteTicketClass(DeleteTicketClassRequest) returns (google.protobuf.Empty);
+}
+
+message TicketClass {
+    string id = 1;
+    string event_id = 2;
+    string name = 3;
+    int64 price_cents = 4;
+    string currency = 5;
+    int32 total = 6;
+    string start_sale_at = 7;
+    string end_sale_at = 8;
+    string created_at = 9;
+    string updated_at = 10;
+}
+
+message CreateTicketClassRequest {
+    string event_id = 1;
+    string name = 2;
+    int64 price_cents = 3;
+    string currency = 4;
+    int32 total = 5;
+    string start_sale_at = 6;
+    string end_sale_at = 7;
+}
+
+message CreateTicketClassResponse {
+    TicketClass ticket_class = 1;
+}
+
+message UpdateTicketClassRequest {
+    string id = 1;
+    string name = 2;
+    int64 price_cents = 3;
+    string currency = 4;
+    int32 total = 5;
+    string start_sale_at = 6;
+    string end_sale_at = 7;
+}
+
+message UpdateTicketClassResponse {
+    TicketClass ticket_class = 1;
+}
+
+message FindOneTicketClassRequest {
+    string id = 1;
+}
+
+message FindOneTicketClassResponse {
+    TicketClass ticket_class = 1;
+}
+
+message FindManyTicketClassRequest {
+    string event_id = 1;
+}
+
+message FindManyTicketClassResponse {
+    repeated TicketClass ticket_classes = 1;
+}
+
+message DeleteTicketClassRequest {
+    string id = 1;
+}
