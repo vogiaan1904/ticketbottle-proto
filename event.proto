@@ -56,9 +56,10 @@ message Event {
     EventOrganizer organizer = 9;
     repeated EventRole roles = 10;
     repeated EventCategory categories = 11;
-    EventStatus status = 12;
-    string created_at = 13;
-    string updated_at = 14;
+    repeated TicketClass ticket_classes = 12;
+    EventStatus status = 13;
+    string created_at = 14;
+    string updated_at = 15;
 }
 
 message EventCategory {
@@ -96,6 +97,18 @@ message EventRole {
     string user_id = 2;
     string event_id = 3;
     EventRoleType role = 4;
+}
+
+message TicketClass {
+    string id = 1;
+    string name = 2;
+    string description = 3;
+    double price = 4;
+    int32 quantity = 5;
+    string start_date = 6;
+    string end_date = 7;
+    string created_at = 8;
+    string updated_at = 9;
 }
 
 message CreateEventRequest {
