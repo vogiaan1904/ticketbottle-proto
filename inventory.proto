@@ -115,5 +115,5 @@ message CheckAvailabilityRequest {
 
 
 message CheckAvailabilityResponse {
-    int32 available_quantity = 1;
+    bool accept = 1;
 }
