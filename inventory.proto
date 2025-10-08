@@ -11,6 +11,11 @@ service InventoryService {
     rpc FindOneTicketClass(FindOneTicketClassRequest) returns (FindOneTicketClassResponse);
     rpc FindManyTicketClass(FindManyTicketClassRequest) returns (FindManyTicketClassResponse);
     rpc DeleteTicketClass(DeleteTicketClassRequest) returns (google.protobuf.Empty);
+
+    rpc Reserve(ReserveRequest) returns (google.protobuf.Empty);
+    rpc ConfirmReservation(ConfirmReservationRequest) returns (google.protobuf.Empty);
+    rpc CancelReservation(CancelReservationRequest) returns (google.protobuf.Empty);
+    rpc GetAvailability(GetAvailabilityRequest) returns (GetAvailabilityResponse);
 }
 
 message TicketClass {
@@ -72,4 +77,27 @@ message FindManyTicketClassResponse {
 
 message DeleteTicketClassRequest {
     string id = 1;
+}
+
+message ReserveRequest {
+    string order_code = 1;
+    string ticket_class_id = 2;
+    int32 quantity = 3;
+    string expires_at = 4;
+}
+
+message ConfirmReservationRequest {
+    string order_code = 1;
+}
+
+message CancelReservationRequest {
+    string order_code = 1;
+}
+
+message GetAvailabilityRequest {
+    string ticket_class_id = 1;
+}
+
+message GetAvailabilityResponse {
+    int32 available_quantity = 1;
 }
