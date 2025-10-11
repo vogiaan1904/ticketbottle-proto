@@ -17,6 +17,13 @@ enum PaymentProvider {
     VNPAY = 3;
 }
 
+enum PaymentStatus {
+    PENDING = 0;
+    COMPLETED = 1;
+    FAILED = 2;
+    CANCELED = 3;
+}
+
 message CreatePaymentIntentRequest {
     string order_code = 1;
     int64 amount_cents = 2;
@@ -37,7 +44,7 @@ message ConfirmPaymentIntentRequest {
 
 message ConfirmPaymentIntentResponse {
     string payment_id = 1;
-    string status = 2;
+    PaymentStatus status = 2;
 }
 
 message CancelPaymentIntentRequest {
@@ -46,5 +53,5 @@ message CancelPaymentIntentRequest {
 
 message CancelPaymentIntentResponse {
     string payment_id = 1;
-    string status = 2;
+    PaymentStatus status = 2;
 }
