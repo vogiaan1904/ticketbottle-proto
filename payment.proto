@@ -34,7 +34,6 @@ message CreatePaymentIntentRequest {
 }
 
 message CreatePaymentIntentResponse {
-    string payment_id = 1;
     string payment_url = 2;
 }
 
