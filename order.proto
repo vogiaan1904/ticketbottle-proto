@@ -113,5 +113,5 @@ message ListOrdersResponse {
 }
 
 message CancelOrderRequest {
-    string code = 1;
+    string id = 1;
 }
