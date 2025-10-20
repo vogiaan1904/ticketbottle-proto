@@ -170,7 +170,7 @@ message EventFilter {
 
 message FindManyEventRequest {
     int32 page = 1;           
-    int32 page_size = 2;
+    int64 page_size = 2;
     optional EventFilter filter = 3;
 }
 
