@@ -184,6 +184,7 @@ message PaginationInfo {
     int32 page_size = 2;
     int32 count = 3;
     int32 last_page = 4;
+    int32 total = 7;
     bool has_next = 5;
     bool has_previous = 6;
 }
