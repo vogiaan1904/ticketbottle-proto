@@ -22,7 +22,6 @@ enum OrderStatus {
 }
 
 message Order {
-    string id = 10;
     string code = 1;
     string event_id = 2;
     string user_id = 3;
@@ -94,10 +93,7 @@ message GetManyOrdersResponse {
 }
 
 message GetOrderRequest {
-    oneof find_option {
         string code = 1;
-        string id = 2;
-    }
 }
 
 message GetOrderResponse {
@@ -113,5 +109,5 @@ message ListOrdersResponse {
 }
 
 message CancelOrderRequest {
-    string id = 1;
+    string code = 1;
 }
